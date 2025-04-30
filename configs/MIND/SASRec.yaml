@@ -1,0 +1,22 @@
+model: SASRec
+learning_rate: 0.001
+MAX_ITEM_LIST_LENGTH: 100
+ITEM_LIST_LENGTH_FIELD: item_length
+LIST_SUFFIX: _list
+
+embedding_size: 384
+SASRec:
+  embedding_size: 384
+  loss_type: CE
+  max_seq_length: 256
+  hidden_size: 384
+  num_hidden_layers: 2
+  num_heads: 2
+  n_layers: 2
+  attn_dropout_prob: 0.2
+  hidden_dropout_prob: 0.2
+
+
+epochs: 500
+# Disable negative sampling (required for CE loss)
+train_neg_sample_args: null

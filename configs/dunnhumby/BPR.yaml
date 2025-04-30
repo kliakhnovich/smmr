@@ -1,0 +1,10 @@
+
+model: BPR
+learning_rate: 0.001
+BPR:
+  embedding_size: 384
+
+# training and evaluation
+epochs: 500
+train_batch_size: 4096
+eval_batch_size: 4096000

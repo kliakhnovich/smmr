@@ -1,0 +1,23 @@
+dataset: "MIND"
+seed: 2025
+USER_ID_FIELD: user_id
+ITEM_ID_FIELD: item_id
+TIME_FIELD: timestamp
+load_col:
+    inter: [user_id, item_id, label, timestamp]
+
+eval_args:
+  group_by: user
+  order: TO
+  split:
+    RS: [0.8, 0.2, 0.0]
+
+metrics: ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk: 100
+valid_metric: mrr@100
+
+embedding_size: 384
+hidden_size: 384
+
+val_interval: {label: "[1,inf)"}
+user_inter_num_interval: "[15,inf)"
