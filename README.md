@@ -1,7 +1,7 @@
 # Sampled MMR
 Repository for the Sampled MMR Research
 This repo contains:
-- production-ready code for experimenting with SMMMR in you projects/research
+- production-ready code for experiments with SMMR in you projects/research
 - implementaton of methods from paper (SMMR, MMR, DPP, SSD)
 - code to reproduce results of experiments from paper
 
