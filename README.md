@@ -17,27 +17,27 @@ pip install -r requirements.txt
 
 ### Reranker configuration 
 ~~~ Python
-reranker_params = {
-    "candidates_pool_size": 1000, # limits the scope of reranker on candidates_pool_size items with maximal relevances
-    "top_k": 200, # size of reranker output
-    "lambda_": 0.99, # diversity tradeoff parameter
-    "scale_factor": 4, # batch size increasing rate
-    "temperature": 0.001, # controls the sharpness (how likely it is to pick item from the end of recommendations list )
-}
+reranker_params = {  
+    "candidates_pool_size": 1000,  # Limits the scope of reranker to the top `candidates_pool_size` items with maximal relevances  
+    "top_k": 200,                  # Size of reranker output  
+    "lambda_": 0.99,               # Diversity tradeoff parameter  
+    "scale_factor": 4,             # Batch size increasing rate  
+    "temperature": 0.001,          # Controls the sharpness (likelihood of picking items from the end of the recommendations list)  
+}  
 
-from torch_rerankers import SampledMMRReranker
-reranker = SampledMMRReranker(**reranker_params)
+from torch_rerankers import SampledMMRReranker  
+reranker = SampledMMRReranker(**reranker_params)  
 ~~~
 
 ### Usage
 You can find executable example in `example.py`
 ~~~ Python
-# works much faster if tensors are loaded to CUDA
-reranked_items, reranked_logits = reranker.rerank(
-    pred_logits=pred_logits, # logits of recommended items
-    label_ids=label_ids, # labels of recommended items
-    item_embeddings=item_embeddings, # embeddings of ALL UNIQUE items in catalogue
-)
+# Works much faster if tensors are loaded to CUDA  
+reranked_items, reranked_logits = reranker.rerank(  
+    pred_logits=pred_logits,       # Logits of recommended items  
+    label_ids=label_ids,           # Labels of recommended items  
+    item_embeddings=item_embeddings,  # Embeddings of ALL UNIQUE items in the catalogue/batch (must be accessible by indexing over label_ids)  
+)  
 ~~~
 
 # To reproduce results:
