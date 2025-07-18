@@ -4,6 +4,7 @@ This repo contains:
 - production-ready code for experiments with SMMR in you projects/research
 - implementaton of methods from paper (SMMR, MMR, DPP, SSD)
 - code to reproduce results of experiments from paper
+- citation info
 
 # SMMR reranker usage
 
@@ -81,4 +82,27 @@ PYTHONPATH=. python src/cli/run_reranking_experiments.py \
     --reranking_results_dir reranking_results \
     --candidates_top_k 1000 \
     --rank_top_k 200 
+~~~
+
+# Citation
+
+### If you find our method useful, please cite us
+~~~
+@inproceedings{10.1145/3726302.3730250,
+author = {Liakhnovich, Kiryl and Lashinin, Oleg and Babkin, Andrei and Pechatov, Michael and Ananyeva, Marina},
+title = {SMMR: Sampling-Based MMR Reranking for Faster, More Diverse, and Balanced Recommendations and Retrieval},
+year = {2025},
+isbn = {9798400715921},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3726302.3730250},
+doi = {10.1145/3726302.3730250},
+abstract = {Relevance and diversity are critical objectives in modern information retrieval (IR), particularly in recommender systems. Achieving a balance between relevance (exploitation) and diversity (exploration) optimizes user satisfaction and business goals such as catalog coverage and novelty. While existing post-processing reranking methods address this trade-off, they usually rely on greedy strategies, leading to suboptimal outcomes for large-scale tasks. To this end, we propose Sampled Maximal Marginal Relevance (SMMR), a novel sampling-based extension of MMR that introduces randomness into item selection to improve relevance-diversity trade-offs. SMMR avoids the rigidity of greedy and deterministic reranking, and achieves a logarithmic computational speedup, which allows it to scale on large candidate sets. Our evaluations on multiple real-world open-source datasets demonstrate that SMMR consistently outperforms existing state-of-the-art approaches, offering superior performance in balancing relevance and diversity. Our implementation of the proposed method is made available to support future research.},
+booktitle = {Proceedings of the 48th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+pages = {2754–2758},
+numpages = {5},
+keywords = {candidates generation, diversity, information retrieval, post-processing methods, recommender systems, reranking},
+location = {Padua, Italy},
+series = {SIGIR '25}
+}
 ~~~
